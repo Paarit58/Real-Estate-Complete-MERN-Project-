@@ -49,9 +49,7 @@ export const updateUser = catchAsync(async (req, res, next) => {
 
   res.status(201).json({
     status: "success",
-    data: {
-      updatedData: doc,
-    },
+    data: doc,
   });
 });
 
@@ -71,15 +69,15 @@ export const deleteUser = catchAsync(async (req, res, next) => {
     return next(
       new AppError("there is no document to be deleted for this id", 404)
     );
-  
+
   res.status(200).json({
     status: "success",
-    messgae:"Your account has been deleted",
+    message: "Your account has been deleted",
     data: doc,
   });
 });
 
-export const deleteMe=(req,res,next)=>{
+export const deleteMe = (req, res, next) => {
   req.params.id = req.user._id;
   next();
-}
+};

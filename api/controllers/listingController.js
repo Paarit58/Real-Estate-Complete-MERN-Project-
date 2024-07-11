@@ -5,7 +5,9 @@ import catchAsync from "../utils/catchAsync.js";
 
 export const getAllListings = catchAsync(async (req, res, next) => {
   console.log(typeof req.query);
+  console.log(req.query)
   const queryObject = new ApiFeatures(Listing.find(), req.query)
+    .search()
     .filter()
     .sort()
     .limitFields()

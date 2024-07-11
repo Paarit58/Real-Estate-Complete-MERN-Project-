@@ -5,22 +5,37 @@ class ApiFeatures {
   }
 
   filter() {
-    if (this.queryString.length) {
-      const queryObj = { ...this.queryString };
-      const excludedFields = ["fields", "sort", "page", "limit"];
+    if (Object.keys(this.queryString).length) {
+      console.log(this.queryString);
+      let queryObj = { ...this.queryString };
+      const excludedFields = ["fields", "sort", "page", "limit", "search"];
       excludedFields.forEach((field) => {
         if (queryObj[field]) {
           delete queryObj[field];
         }
       });
-      const queryStr = JSON.stringify(queryObj);
+      console.log(queryObj);
+      let queryStr = JSON.stringify(queryObj);
+      console.log(queryStr);
       queryStr = queryStr.replace(
         /\b(gte|gt|lte|lt)\b/g,
         (match) => `$${match}`
       );
       queryObj = JSON.parse(queryStr);
 
+      console.log(queryObj);
+
       this.query = this.query.find(queryObj);
+      // this.query = this.query.find({ name: { '$regex': '/Cottage/' } });
+    }
+    return this;
+  }
+
+  search() {
+    if (this.queryString.search) {
+      this.query = this.query.find({
+        name: { $regex: this.queryString.search, $options: "i" },
+      });
     }
     return this;
   }
@@ -46,9 +61,9 @@ class ApiFeatures {
   }
 
   paginate() {
-    if (this.query.page) {
+    if (this.queryString.page || this.queryString.limit) {
       const page = this.queryString.page * 1 || 1;
-      const limit = this.query.limit || 10;
+      const limit = this.queryString.limit || 10;
       this.query = this.query.skip((page - 1) * limit).limit(limit);
     }
     return this;

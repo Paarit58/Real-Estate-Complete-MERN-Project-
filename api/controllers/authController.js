@@ -21,9 +21,8 @@ const createSendToken = catchAsync(async (user, res, statusCode) => {
   if (process.env.NODE_ENV === "production") {
     cookieOptions.secure = true;
   }
-  res.cookie("jwt", token, cookieOptions);
   user.password = undefined;
-  res.status(statusCode).json({
+  res.cookie("jwt", token, cookieOptions).status(statusCode).json({
     status: "success",
     token,
     data: user,
@@ -57,6 +56,22 @@ export const signin = catchAsync(async (req, res, next) => {
     return next(new AppError("Invalid email_id or password", 404));
   }
   createSendToken(user, res, 200);
+});
+
+export const signInWithGoogle = catchAsync(async (req, res, next) => {
+  const { email } = req.body;
+  const user = await User.findOne({ email });
+  if (user) {
+    createSendToken(user, res, 200);
+  }
+  const password =
+    Math.random().toString(36).slice(-8) + Math.random().toString(36).slice(-8);
+  const newUser = await User.create({
+    ...req.body,
+    password,
+    passwordConfirm: password,
+  });
+  createSendToken(newUser, res, 201);
 });
 
 export const signout = (req, res, next) => {
@@ -160,8 +175,12 @@ export const resetPassword = catchAsync(async (req, res, next) => {
 
   // await user.save()
 
-  try{await user.save();}catch(error){res.status(400).json({
-    message:"error"
-  })}
+  try {
+    await user.save();
+  } catch (error) {
+    res.status(400).json({
+      message: "error",
+    });
+  }
   createSendToken(user, res, 201);
 });
