@@ -45,62 +45,60 @@ A full-stack MERN application designed to manage real estate listings. The platf
 
 ### Installation
 
-1. Clone the repository:
+1.  Clone the repository:
 
-   ```bash
-   git clone https://github.com/your-username/real-estate-project.git
+    ```bash
+    git clone https://github.com/your-username/real-estate-project.git
 
-   ```
+    ```
 
-2. Navigate to the project directory:
+2.  Navigate to the project directory:
 
-   ```bash
-   cd real-estate-project
+    ```bash
+    cd real-estate-project
 
-   ```
+    ```
 
-3. Install dependencies for both client and server:
+3.  Install dependencies for both client and server:
 
-   ```bash
-   npm install
-   cd client
-   npm install
+    ```bash
+    npm install
+    cd client
+    npm install
 
-   ```
+    ```
 
-4. Set up environment variables:
+4.  Set up environment variables:
 
-   -**API**: Create a .env file in the api folder with the following content:
+    -**API**: Create a .env file in the api folder with the following content:
 
-        ```php
-        NODE_ENV=development
-        PORT=3000
-        DATABASE=<your-database-uri>
-        JWT_SECRET=<your-jwt-secret>
-        GOOGLE_CLIENT_ID=<your-google-client-id>
-        GOOGLE_CLIENT_SECRET=<your-google-client-secret>
-        FIREBASE_STORAGE_BUCKET=<your-firebase-storage-bucket>
-        ```
+         NODE_ENV=development
+         PORT=3000
+         DATABASE=<your-database-uri>
+         JWT_SECRET=<your-jwt-secret>
+         GOOGLE_CLIENT_ID=<your-google-client-id>
+         GOOGLE_CLIENT_SECRET=<your-google-client-secret>
+         FIREBASE_STORAGE_BUCKET=<your-firebase-storage-bucket>
+
 
     -**Client**: Create a .env file in the client folder with the following content:
 
-        ```php
-        VITE_FIREBASE_API_KEY=<your-firebase-api-key>
-        ```
+         VITE_FIREBASE_API_KEY=<your-firebase-api-key>
 
-5. Start the server:
 
-   -**For API**:
+5.  Start the server:
 
-   ```bash
-   npm run dev
-   ```
+    -**For API**:
 
-   -**For Client**:
+    ```bash
+    npm run dev
+    ```
 
-   ```bash
-   npm run dev
-   ```
+    -**For Client**:
+
+    ```bash
+    npm run dev
+    ```
 
 ## Usage
 
