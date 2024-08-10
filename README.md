@@ -88,18 +88,16 @@ FIREBASE_STORAGE_BUCKET=<your-firebase-storage-bucket>
 VITE_FIREBASE_API_KEY=<your-firebase-api-key>
 ```
 
-
-
-```
-
 5. Start the server:
 
    -**For API**:
+
    ```bash
    npm run dev
    ```
 
    -**For Client**:
+
    ```bash
    npm run dev
    ```
@@ -108,4 +106,3 @@ VITE_FIREBASE_API_KEY=<your-firebase-api-key>
 
 - **API Base URL**: http://localhost:3000/api/v1
 - **Client Base URL**: http://localhost:3000/api/v1
-
