@@ -70,23 +70,23 @@ A full-stack MERN application designed to manage real estate listings. The platf
 
 4. Set up environment variables:
 
--**API**: Create a .env file in the api folder with the following content:
+   -**API**: Create a .env file in the api folder with the following content:
 
-```php
-NODE_ENV=development
-PORT=3000
-DATABASE=<your-database-uri>
-JWT_SECRET=<your-jwt-secret>
-GOOGLE_CLIENT_ID=<your-google-client-id>
-GOOGLE_CLIENT_SECRET=<your-google-client-secret>
-FIREBASE_STORAGE_BUCKET=<your-firebase-storage-bucket>
-```
+        ```php
+        NODE_ENV=development
+        PORT=3000
+        DATABASE=<your-database-uri>
+        JWT_SECRET=<your-jwt-secret>
+        GOOGLE_CLIENT_ID=<your-google-client-id>
+        GOOGLE_CLIENT_SECRET=<your-google-client-secret>
+        FIREBASE_STORAGE_BUCKET=<your-firebase-storage-bucket>
+        ```
 
--**Client**: Create a .env file in the client folder with the following content:
+    -**Client**: Create a .env file in the client folder with the following content:
 
-```php
-VITE_FIREBASE_API_KEY=<your-firebase-api-key>
-```
+        ```php
+        VITE_FIREBASE_API_KEY=<your-firebase-api-key>
+        ```
 
 5. Start the server:
 
